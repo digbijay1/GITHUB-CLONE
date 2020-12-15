@@ -38,24 +38,13 @@ async function loadUser(a) {
 
 
 
-            var ij = data[i].name
-    
+            
+    var ij = data[i].name
            // console.log(ij);
            //bro here i am facing the issue i have just uncomment the things
-            /*async function loadUser2(a) {
-                try {
-                    const url = `https://api.github.com/repos/${a}/${ij}/git/trees/master?recursive=1`
-                    const response = await fetch(url);
-                    var data = await response.json();
-                  console.log(data.tree[3].path)
-                 // console.log(typeof(data1.tree[0]))
-                }
-                catch (err) {
-                    console.log("err1")
-                }
-            }
-            loadUser2(a)
-            */
+           
+          await loadUser2(a,ij)
+            
            
           
          
@@ -68,6 +57,18 @@ async function loadUser(a) {
     }
    
 }
+ async function loadUser2(a,ij) {
+                try {
+                    const url = `https://api.github.com/repos/${a}/${ij}/git/trees/master?recursive=1`
+                    const response = await fetch(url);
+                    var data = await response.json();
+                  console.log(data.tree[3].path)
+                 // console.log(typeof(data1.tree[0]))
+                }
+                catch (err) {
+                    console.log("err1")
+                }
+            }
 
 
 
